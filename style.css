@@ -1,0 +1,44 @@
+.calc {
+	width: 100%;
+	max-width: 500px;
+	margin: auto;
+	padding: 20px;
+	font-size: 20px;
+	border: 1px solid #000;
+}
+
+.title {
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.display .main {
+	text-align: right;
+}
+
+.display .base:before {
+	display: inline-block;
+	width: 50px;
+}
+.display .base.dex:before { content: 'dex'; }
+.display .base.dec:before { content: 'dec'; }
+.display .base.oct:before { content: 'oct'; }
+.display .base.bin:before { content: 'bin'; }
+
+.row {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.buttons > div {
+	margin: 20px 0;
+}
+
+.button {
+	display: border-box;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #000;
+}
