@@ -8,7 +8,9 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 	top: 50px;
 	padding: 20px;
 	font-size: 20px;
-	border: 1px solid #000;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+	border-radius: 3px;
+	background: #eef;
 }
 
 .title {
@@ -35,15 +37,24 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 	justify-content: space-between;
 }
 
-.buttons > div {
-	margin: 20px 0;
+.buttons {
+	padding-top: 20px;
 }
 
 .button {
 	box-sizing: border-box;
-	width: 50px;
+	flex: 1;
 	height: 50px;
-	border: 1px solid #000;
+	box-shadow: 0 0 1px #aaa;
 	text-align: center;
 	line-height: 50px;
+	transition: box-shadow .2s, transform .2s, background .2s;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.button:hover {
+	box-shadow: 0 0 5px #999;
+	z-index: 20;
+	transform: scale(1.2);
+	background: rgba(255, 255, 255, 1);
 }
