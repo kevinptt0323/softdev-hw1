@@ -10,7 +10,8 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 	font-size: 20px;
 	box-shadow: 0 0 2px rgba(0, 0, 0, .4);
 	border-radius: 3px;
-	background: #eef;
+	background: #000;
+	color: #fff;
 }
 
 .title {
@@ -49,12 +50,12 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 	text-align: center;
 	line-height: 50px;
 	transition: box-shadow .2s, transform .2s, background .2s;
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(255, 255, 255, 0.2);
 }
 
 .button:hover {
 	box-shadow: 0 0 5px #999;
 	z-index: 20;
 	transform: scale(1.2);
-	background: rgba(255, 255, 255, 1);
+	background: rgba(0, 0, 0, 1);
 }
