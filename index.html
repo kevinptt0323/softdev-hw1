@@ -5,6 +5,9 @@
 	<title>Calculator</title>
 	<link rel="stylesheet" href="style.css" />
 	<link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="calc.js"></script>
+	<script src="main.js"></script>
 </head>
 
 <body>
@@ -13,7 +16,7 @@
 		<div class="display">
 			<div class="value">0</div>
 			<div class="bases">
-				<div class="base dex">0</div>
+				<div class="base hex">0</div>
 				<div class="base dec">0</div>
 				<div class="base oct">0</div>
 				<div class="base bin">0</div>
@@ -22,43 +25,43 @@
 		<div class="buttons">
 			<div class="row">
 				<div class="button"></div>
-				<div class="button">Mod</div>
-				<div class="button">CE</div>
-				<div class="button">C</div>
-				<div class="button">←</div>
-				<div class="button">％</div>
+				<div class="button" data-content="oper-mod">Mod</div>
+				<div class="button" data-content="ce">CE</div>
+				<div class="button" data-content="c">C</div>
+				<div class="button" data-content="bs">←</div>
+				<div class="button" data-content="oper-percent">％</div>
 			</div>
 			<div class="row">
-				<div class="button">A</div>
-				<div class="button">B</div>
-				<div class="button">7</div>
-				<div class="button">8</div>
-				<div class="button">9</div>
-				<div class="button">×</div>
+				<div class="button" data-content="val-a">A</div>
+				<div class="button" data-content="val-b">B</div>
+				<div class="button" data-content="val-7">7</div>
+				<div class="button" data-content="val-8">8</div>
+				<div class="button" data-content="val-9">9</div>
+				<div class="button" data-content="oper-mul">×</div>
 			</div>
 			<div class="row">
-				<div class="button">C</div>
-				<div class="button">D</div>
-				<div class="button">4</div>
-				<div class="button">5</div>
-				<div class="button">6</div>
-				<div class="button">−</div>
+				<div class="button" data-content="val-c">C</div>
+				<div class="button" data-content="val-d">D</div>
+				<div class="button" data-content="val-4">4</div>
+				<div class="button" data-content="val-5">5</div>
+				<div class="button" data-content="val-6">6</div>
+				<div class="button" data-content="oper-sub">−</div>
 			</div>
 			<div class="row">
-				<div class="button">E</div>
-				<div class="button">F</div>
-				<div class="button">1</div>
-				<div class="button">2</div>
-				<div class="button">3</div>
-				<div class="button">＋</div>
+				<div class="button" data-content="val-e">E</div>
+				<div class="button" data-content="val-f">F</div>
+				<div class="button" data-content="val-1">1</div>
+				<div class="button" data-content="val-2">2</div>
+				<div class="button" data-content="val-3">3</div>
+				<div class="button" data-content="oper-add">＋</div>
 			</div>
 			<div class="row">
 				<div class="button"></div>
 				<div class="button"></div>
-				<div class="button">±</div>
-				<div class="button">0</div>
+				<div class="button" data-content="oper-neg">±</div>
+				<div class="button" data-content="val-0">0</div>
 				<div class="button"></div>
-				<div class="button">＝</div>
+				<div class="button" data-content="calc">＝</div>
 			</div>
 		</div>
 	</div>

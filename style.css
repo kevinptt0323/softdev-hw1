@@ -29,7 +29,7 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 	display: inline-block;
 	width: 50px;
 }
-.display .base.dex:before { content: 'dex'; }
+.display .base.hex:before { content: 'hex'; }
 .display .base.dec:before { content: 'dec'; }
 .display .base.oct:before { content: 'oct'; }
 .display .base.bin:before { content: 'bin'; }
