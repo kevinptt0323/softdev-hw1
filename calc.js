@@ -13,12 +13,13 @@ class Calc {
   }
   exec(_oper) {
     return new Promise((resolve, reject) => {
-      console.log(_oper);
       let oper = _oper.split('-');
+      console.log(oper);
       if (oper.length==1) {
-        switch(oper) {
+        switch(oper[0]) {
           case 'ce':
-            reset();
+            this.reset();
+            resolve(0);
           case 'c':
           case 'bs':
           default:
