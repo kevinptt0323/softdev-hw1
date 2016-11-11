@@ -4,7 +4,7 @@ function isVal(oper) {
 
 class Calc {
   constructor() {
-    this.reset(16);
+    this.reset(10);
   }
   reset(base = 10) {
     this.display = '';

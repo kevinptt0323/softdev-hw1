@@ -55,12 +55,17 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 	cursor: pointer;
 }
 
-.button:hover {
+.disabled.button {
+	color: #ccc;
+	cursor: not-allowed;
+}
+
+.button:not(.disabled):hover {
 	box-shadow: 0 0 5px #999;
 	z-index: 20;
 	background: rgba(255, 255, 255, 1);
 }
 
-.button:active {
+.button:not(.disabled):active {
 	box-shadow: 0 0 5px #999 inset;
 }
