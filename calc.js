@@ -4,6 +4,32 @@ if (!Array.prototype.back) {
   };
 }
 
+function evaluate(arr) {
+  let str = '';
+  for(let i=0; i<arr.length; i++) {
+    switch(arr[i][1]) {
+      case 'add':
+        str += '+';
+        break;
+      case 'sub':
+        str += '-';
+        break;
+      case 'mul':
+        str += '*';
+        break;
+      case 'mod':
+        str += '%';
+        break;
+      default:
+        str += arr[i][1];
+        break;
+    }
+  }
+  str = str.replace('--', '+');
+  console.log(str);
+  return eval(str);
+}
+
 function isVal(cmd) {
   return cmd[0]==='val';
 }
@@ -16,7 +42,7 @@ class Calc {
   constructor() {
     this.reset(10);
   }
-  reset(base = 10) {
+  reset(base = this.base) {
     this.buffer = [];
     this.base = base;
     this.buffer.push(['val', 0]);
@@ -29,7 +55,7 @@ class Calc {
       if (cmd.length==1) {
         switch(cmd[0]) {
           case 'ce':
-            this.reset(this.base);
+            this.reset();
             break;
           case 'c':
             this.buffer.pop();
@@ -48,7 +74,10 @@ class Calc {
           case 'calc':
             if (isOper(this.buffer.back()))
               this.buffer.push([...this.buffer[this.buffer.length-2]]);
-            console.log(JSON.stringify(this.buffer));
+            let result = evaluate(this.buffer);
+            this.reset();
+            this.buffer.pop();
+            this.buffer.push(['val', result]);
             break;
           default:
             reject(cmd);
