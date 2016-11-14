@@ -17,6 +17,9 @@ function evaluate(arr) {
       case 'mul':
         str += '*';
         break;
+      case 'div':
+        str += '/'
+        break;
       case 'mod':
         str += '%';
         break;
@@ -27,6 +30,7 @@ function evaluate(arr) {
   }
   str = str.replace('--', '+');
   console.log(str);
+  console.log(JSON.stringify(arr));
   return eval(str);
 }
 
@@ -46,6 +50,7 @@ class Calc {
     this.buffer = [];
     this.base = base;
     this.buffer.push(['val', 0]);
+    this.calc = false;
   }
   exec(_cmd) {
     return new Promise((resolve, reject) => {
@@ -54,10 +59,10 @@ class Calc {
       console.log(cmd);
       if (cmd.length==1) {
         switch(cmd[0]) {
-          case 'ce':
+          case 'c':
             this.reset();
             break;
-          case 'c':
+          case 'ce':
             this.buffer.pop();
             this.buffer.push(['val', 0]);
             break;
@@ -78,12 +83,13 @@ class Calc {
             this.reset();
             this.buffer.pop();
             this.buffer.push(['val', result]);
+            this.calc = true;
             break;
           default:
-            reject(cmd);
-            return;
+            break;
         }
       } else if (isVal(cmd)) {
+        if (this.calc) this.reset();
         if (!isVal(this.buffer.back()))
           this.buffer.push(['val', 0]);
         last = this.buffer.back();
