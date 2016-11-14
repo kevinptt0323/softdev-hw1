@@ -38,8 +38,19 @@ $(() => {
         };
         render(props);
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => console.log(err));
+  });
+  $('.base').on('click', function(e) {
+    let content = $(this).data('content');
+    calc.base = content|0;
+    calc.exec('')
+      .then(res => {
+        let props = {
+          base: calc.base,
+          value: res,
+        };
+        render(props);
+      })
+      .catch(err => console.log(err));
   });
 });
