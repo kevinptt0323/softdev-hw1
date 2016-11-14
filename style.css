@@ -104,3 +104,33 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 .calc.dec .bases:before { top: 40px; }
 .calc.oct .bases:before { top: 71px; }
 .calc.bin .bases:before { top: 102px; }
+
+.help-wrapper {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	background: rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.help {
+	padding: 20px;
+	width: 400px;
+	background: #fff;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.help table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.help table td {
+	text-align: center;
+	padding: 8px;
+	border: 1px solid #999;
+}

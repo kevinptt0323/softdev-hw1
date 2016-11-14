@@ -28,7 +28,10 @@ const keyBinging = [
   { key: '/', content: 'oper-div' },
   { key: '%', content: 'oper-mod' },
   { key: ['=', 'enter'], content: 'calc' },
-  { key: 'backspace', content: 'bs' }
+  { key: 'backspace', content: 'bs' },
+  { key: 'esc', content: 'c' },
+  { key: 'n', content: 'neg' },
+  { key: 'c e', content: 'ce' },
 ]
 
 function render(props) {
@@ -84,5 +87,14 @@ $(() => {
 
   keyBinging.forEach(({key, content}) => {
     Mousetrap.bind(key, () => $(`.button[data-content=${content}]`).click());
+    $(`.button[data-content=${content}]`).attr('title', `[${key}]`);
   })
+  Mousetrap.bind('h e x', () => $(`.base.hex`).click());
+  Mousetrap.bind('d e c', () => $(`.base.dec`).click());
+  Mousetrap.bind('o c t', () => $(`.base.oct`).click());
+  Mousetrap.bind('b i n', () => $(`.base.bin`).click());
+  Mousetrap.bind('?', () => $('.help-wrapper').fadeToggle());
+
+  $('.help-wrapper').on('click', function() {$(this).fadeOut();});
+
 });
