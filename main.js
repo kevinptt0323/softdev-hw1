@@ -4,6 +4,33 @@ const base2str = {
   10: 'dec',
   16: 'hex'
 };
+
+const keyBinging = [
+  { key: '0', content: 'val-0' },
+  { key: '1', content: 'val-1' },
+  { key: '2', content: 'val-2' },
+  { key: '3', content: 'val-3' },
+  { key: '4', content: 'val-4' },
+  { key: '5', content: 'val-5' },
+  { key: '6', content: 'val-6' },
+  { key: '7', content: 'val-7' },
+  { key: '8', content: 'val-8' },
+  { key: '9', content: 'val-9' },
+  { key: 'a', content: 'val-a' },
+  { key: 'b', content: 'val-b' },
+  { key: 'c', content: 'val-c' },
+  { key: 'd', content: 'val-d' },
+  { key: 'e', content: 'val-e' },
+  { key: 'f', content: 'val-f' },
+  { key: '+', content: 'oper-add' },
+  { key: '-', content: 'oper-sub' },
+  { key: '*', content: 'oper-mul' },
+  { key: '/', content: 'oper-div' },
+  { key: '%', content: 'oper-mod' },
+  { key: ['=', 'enter'], content: 'calc' },
+  { key: 'backspace', content: 'bs' }
+]
+
 function render(props) {
   let { base, value } = props;
   $('.calc')
@@ -29,6 +56,7 @@ $(() => {
     value: 0
   });
   $('.button').on('click', function(e) {
+    if ($(this).hasClass('disabled')) return;
     let content = $(this).data('content');
     calc.exec(content)
       .then(res => {
@@ -53,4 +81,8 @@ $(() => {
       })
       .catch(err => console.log(err));
   });
+
+  keyBinging.forEach(({key, content}) => {
+    Mousetrap.bind(key, () => $(`.button[data-content=${content}]`).click());
+  })
 });
