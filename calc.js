@@ -49,8 +49,21 @@ class Calc {
   reset(base = this.base) {
     this.buffer = [];
     this.base = base;
-    this.buffer.push(['val', 0]);
+    this.value = 0;
+    this.buffer.push(['val', this.value]);
     this.calc = false;
+  }
+  toString(base) {
+    let value = this.value, sign = 1;
+    if (base!=10) {
+      if (value<0) {
+        value = -value;
+        sign = -1;
+      }
+      value &= 0xffff;
+      if (sign==-1) value = value ^ 0xffff;
+    }
+    return value.toString(base);
   }
   exec(_cmd) {
     return new Promise((resolve, reject) => {
@@ -93,13 +106,17 @@ class Calc {
         if (!isVal(this.buffer.back()))
           this.buffer.push(['val', 0]);
         last = this.buffer.back();
-        last[1] = last[1] * this.base + parseInt(cmd[1], this.base);
+        if (last[1]<0)
+          last[1] = last[1] * this.base - parseInt(cmd[1], this.base);
+        else
+          last[1] = last[1] * this.base + parseInt(cmd[1], this.base);
       } else if (isOper(cmd)) {
         if (isOper(this.buffer.back()))
           this.buffer.pop();
         this.buffer.push(cmd);
       }
-      resolve(this.buffer.filter(isVal).back()[1]);
+      this.value = this.buffer.filter(isVal).back()[1];
+      resolve();
     });
   }
 }

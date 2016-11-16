@@ -35,7 +35,7 @@ const keyBinging = [
 ]
 
 function render(props) {
-  let { base, value } = props;
+  let { calc: { base }, calc } = props;
   $('.calc')
     .removeClass('bin oct dec hex')
     .addClass(base2str[base]);
@@ -46,28 +46,21 @@ function render(props) {
       $(`.${base2str[base_k]}.button`).addClass('disabled')
     );
 
-  $('.display .value').html(value.toString(base));
-  $('.base.hex').html(value.toString(16));
-  $('.base.dec').html(value.toString(10));
-  $('.base.oct').html(value.toString(8));
-  $('.base.bin').html(value.toString(2));
+  $('.display .value').html(calc.toString(base));
+  $('.base.hex').html(calc.toString(16));
+  $('.base.dec').html(calc.toString(10));
+  $('.base.oct').html(calc.toString(8));
+  $('.base.bin').html(calc.toString(2));
 }
 $(() => {
   let calc = new Calc();
-  render({
-    base: calc.base,
-    value: 0
-  });
+  render({calc});
   $('.button').on('click', function(e) {
     if ($(this).hasClass('disabled')) return;
     let content = $(this).data('content');
     calc.exec(content)
-      .then(res => {
-        let props = {
-          base: calc.base,
-          value: res,
-        };
-        render(props);
+      .then(() => {
+        render({calc});
       })
       .catch(err => console.log(err));
   });
@@ -75,12 +68,8 @@ $(() => {
     let content = $(this).data('content');
     calc.base = content|0;
     calc.exec('')
-      .then(res => {
-        let props = {
-          base: calc.base,
-          value: res,
-        };
-        render(props);
+      .then(() => {
+        render({calc});
       })
       .catch(err => console.log(err));
   });
