@@ -134,3 +134,25 @@ body { margin: 0; padding: 0; top: 0; left: 0; }
 	padding: 8px;
 	border: 1px solid #999;
 }
+
+.help-btn {
+	position: fixed;
+	display: block;
+	left: 10px;
+	top: 10px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 15px;
+	text-align: center;
+	color: #eee;
+	border: 1px solid #eee;
+	box-shadow: 0 0 5px rgba(150, 150, 150, .5);
+	cursor: pointer;
+	transition: all .2s;
+}
+
+.help-btn:hover {
+	color: #999;
+	box-shadow: 0 0 10px rgba(150, 150, 150, .5);
+}

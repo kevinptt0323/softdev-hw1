@@ -85,5 +85,6 @@ $(() => {
   Mousetrap.bind('?', () => $('.help-wrapper').fadeToggle());
 
   $('.help-wrapper').on('click', function() {$(this).fadeOut();});
+  $('.help-btn').on('click', function() {$('.help-wrapper').fadeToggle();});
 
 });
