@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Test calc.js</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qunit/2.1.0/qunit.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/2.1.0/qunit.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Test calc.js</title>
+	<script src="../calc.es5.js" data-cover></script>
+	<!-- unit test libraries -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qunit/2.1.0/qunit.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/2.1.0/qunit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/blanket.js/1.1.4/blanket.min.js"></script>
 </head>
 <body>
-  <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="../calc.js"></script>
-  <script src="calcTest.js"></script>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script src="calcTest.js"></script>
 </body>
 </html>
