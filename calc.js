@@ -120,3 +120,8 @@ class Calc {
     });
   }
 }
+
+
+if (module) {
+  exports.isVal = isVal;
+}
