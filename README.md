@@ -25,6 +25,8 @@ To test `calc.js`, open `tests/calc.html`.
 
 ## `main.js`
 
+To test `main.js`, open `tests/main.html`.
+
 - help feature
   - `.help-btn`
   - `.help-wrapper`
@@ -36,11 +38,11 @@ To test `calc.js`, open `tests/calc.html`.
   - base switchs
   - disabled buttons don't work
 
-To test `main.js`, open `tests/main.html`.
-
 # Unit test in shell
 
 I only test `isVal` in `calc.js`.
+
+Need to install `QUnit` with `npm install` first.
 
 ```
 cd cli-test
