@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Test main.js</title>
+	<link rel="stylesheet" href="../style.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+	<script src="../calc.js"></script>
+	<script src="../main.es5.js" data-cover></script>
+	<!-- unit test libraries -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qunit/2.1.0/qunit.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/2.1.0/qunit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/blanket.js/1.1.4/blanket.min.js"></script>
+</head>
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<div class="calc">
+		<div class="title">calculator</div>
+		<div class="display">
+			<div class="value">0</div>
+			<div class="bases">
+				<div class="base hex" data-content="16">0</div>
+				<div class="base dec" data-content="10">0</div>
+				<div class="base oct" data-content="8">0</div>
+				<div class="base bin" data-content="2">0</div>
+			</div>
+		</div>
+		<div class="buttons">
+			<div class="row">
+				<div class="button"></div>
+				<div class="button" data-content="oper-mod">Mod</div>
+				<div class="button" data-content="ce">CE</div>
+				<div class="button" data-content="c">C</div>
+				<div class="button" data-content="bs">←</div>
+				<div class="button" data-content="oper-div">/</div>
+			</div>
+			<div class="row">
+				<div class="button hex" data-content="val-a">A</div>
+				<div class="button hex" data-content="val-b">B</div>
+				<div class="button oct" data-content="val-7">7</div>
+				<div class="button dec" data-content="val-8">8</div>
+				<div class="button dec" data-content="val-9">9</div>
+				<div class="button" data-content="oper-mul">×</div>
+			</div>
+			<div class="row">
+				<div class="button hex" data-content="val-c">C</div>
+				<div class="button hex" data-content="val-d">D</div>
+				<div class="button oct" data-content="val-4">4</div>
+				<div class="button oct" data-content="val-5">5</div>
+				<div class="button oct" data-content="val-6">6</div>
+				<div class="button" data-content="oper-sub">−</div>
+			</div>
+			<div class="row">
+				<div class="button hex" data-content="val-e">E</div>
+				<div class="button hex" data-content="val-f">F</div>
+				<div class="button bin" data-content="val-1">1</div>
+				<div class="button oct" data-content="val-2">2</div>
+				<div class="button oct" data-content="val-3">3</div>
+				<div class="button" data-content="oper-add">＋</div>
+			</div>
+			<div class="row">
+				<div class="button"></div>
+				<div class="button"></div>
+				<div class="button" data-content="neg">±</div>
+				<div class="button bin" data-content="val-0">0</div>
+				<div class="button"></div>
+				<div class="button" data-content="calc">＝</div>
+			</div>
+		</div>
+	</div>
+	<div class="help-wrapper" style="display: none">
+		<div class="help">
+			<table>
+				<tr><td>0~9 a~f</td><td>數字區</td></tr>
+				<tr><td>+-*/%</td><td>運算符號</td></tr>
+				<tr><td>backspace</td><td>刪除</td></tr>
+				<tr><td>= enter</td><td>結果</td></tr>
+				<tr><td>esc</td><td>全部清除</td></tr>
+				<tr><td>ce</td><td>清除輸入欄</td></tr>
+				<tr><td>hex</td><td>切換至 16 進制</td></tr>
+				<tr><td>dec</td><td>切換至 10 進制</td></tr>
+				<tr><td>oct</td><td>切換至 8 進制</td></tr>
+				<tr><td>bin</td><td>切換至 2 進制</td></tr>
+				<tr><td>?</td><td>顯示說明視窗</td></tr>
+			</table>
+		</div>
+	</div>
+	<div class="help-btn">？</div>
+	<script src="mainTest.js"></script>
+</body>
+</html>
+
+
